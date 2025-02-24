@@ -1,0 +1,14 @@
+F:\MedicalSystem\MedicalSystemModule\bin\Debug\net8.0\MedicalSystemModule.deps.json
+F:\MedicalSystem\MedicalSystemModule\bin\Debug\net8.0\MedicalSystemModule.runtimeconfig.json
+F:\MedicalSystem\MedicalSystemModule\bin\Debug\net8.0\MedicalSystemModule.dll
+F:\MedicalSystem\MedicalSystemModule\bin\Debug\net8.0\MedicalSystemModule.pdb
+F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.csproj.AssemblyReference.cache
+F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.GeneratedMSBuildEditorConfig.editorconfig
+F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.AssemblyInfoInputs.cache
+F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.AssemblyInfo.cs
+F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.csproj.CoreCompileInputs.cache
+F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.dll
+F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\refint\MedicalSystemModule.dll
+F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.pdb
+F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.genruntimeconfig.cache
+F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\ref\MedicalSystemModule.dll
