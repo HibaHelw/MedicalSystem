@@ -71,28 +71,25 @@ namespace MedicalSystemAPI.Controllers
 
         [HttpPost("ClinicService")]
         [Authorize]
-        [SwaggerOperation(Summary = "إضافة خدمة إلى عيادة معينة")]
+        [SwaggerOperation(Summary = "Add service to clinic")]
         public Guid AddServiceToClinic(Guid clinicId, Guid serviceId, Guid? doctorId)
         {
-            clinicService.AddServiceToClinicValidation(clinicId, serviceId, doctorId);
             return clinicService.AddServiceToClinic(clinicId, serviceId, doctorId);
         }
 
         [HttpPut("ClinicService/{id}")]
         [Authorize]
-        [SwaggerOperation(Summary = "تعديل خدمة في عيادة معينة")]
+        [SwaggerOperation(Summary = "Edit service in clinic")]
         public void UpdateServiceToClinic(Guid id, Guid clinicId, Guid serviceId, Guid? doctorId)
         {
-            clinicService.UpdateServiceClinicValidation(id, clinicId, serviceId, doctorId);
             clinicService.UpdateServiceClinic(id, clinicId, serviceId, doctorId);
         }
 
         [HttpDelete("ClinicService/{id}")]
         [Authorize]
-        [SwaggerOperation(Summary = "حذف خدمة من عيادة معينة")]
+        [SwaggerOperation(Summary = "Delete service from clinic")]
         public void DeleteServiceFromClinic(Guid id)
         {
-            clinicService.DeleteServiceClinicValidation(id);
             clinicService.DeleteClinicService(id);
         }
 
@@ -102,19 +99,17 @@ namespace MedicalSystemAPI.Controllers
 
         [HttpPut("DoctorService/{id}")]
         [Authorize]
-        [SwaggerOperation(Summary = "تعديل خدمة إلى طبيب معين")]
+        [SwaggerOperation(Summary = "Edit service for doctor")]
         public void UpdateDoctorService(Guid id, Guid clinicId, Guid serviceId, Guid doctorId)
         {
-            clinicService.UpdateServiceClinicValidation(id, clinicId, serviceId, doctorId);
             clinicService.UpdateServiceClinic(id, clinicId, serviceId, doctorId);
         }
 
         [HttpDelete("DoctorService/{id}")]
         [Authorize]
-        [SwaggerOperation(Summary = "حذف خدمة من طبيب معين")]
+        [SwaggerOperation(Summary = "delete service from doctor")]
         public void DeleteServiceFromDoctor(Guid id, Guid clinicId, Guid serviceId)
         {
-            clinicService.UpdateServiceClinicValidation(id, clinicId, serviceId, null);
             clinicService.UpdateServiceClinic(id, clinicId, serviceId, null);
         }
         #endregion

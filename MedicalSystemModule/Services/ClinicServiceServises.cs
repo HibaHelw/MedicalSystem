@@ -13,7 +13,7 @@ using MedicalSystemModule.Interfaces.Services;
 
 namespace MedicalSystemModule.Services
 {
-    public class ClinicServiceServises:IClinicServiceServises
+    public class ClinicServiceServises : IClinicServiceServises
     {
         private ClinicServicesStorage storage;
         ClinicStorage clinicStorage;
@@ -34,6 +34,7 @@ namespace MedicalSystemModule.Services
         }
         public Guid AddServiceToClinic(Guid clinicId, Guid ServiceId, Guid? DoctorId)
         {
+            AddServiceToClinicValidation(clinicId, ServiceId, DoctorId);
             return storage.AddServiceToClinic(clinicId, ServiceId, DoctorId);
         }
         public void UpdateServiceClinicValidation(Guid id, Guid clinicId, Guid ServiceId, Guid? DoctorId)
@@ -45,6 +46,7 @@ namespace MedicalSystemModule.Services
         }
         public void UpdateServiceClinic(Guid id, Guid clinicId, Guid ServiceId, Guid? DoctorId)
         {
+            UpdateServiceClinicValidation(id, clinicId, ServiceId, DoctorId);
             storage.UpdateServiceClinic(id, clinicId, ServiceId, DoctorId);
         }
         public void DeleteServiceClinicValidation(Guid id)
@@ -57,6 +59,7 @@ namespace MedicalSystemModule.Services
         }
         public void DeleteClinicService(Guid id)
         {
+            DeleteServiceClinicValidation(id);
             storage.DeleteClinicService(id);
         }
     }
