@@ -25,6 +25,6 @@ namespace MedicalSystemModule.Models
         public string Description { get; set; }
         public decimal Price { get; set; }
         [NotMapped]
-        public ICollection<IDoctorClinicService> DoctorClinicServices { get; set; }
+        public virtual ICollection<IDoctorClinicService> DoctorClinicServices { get; set; }
     }
 }

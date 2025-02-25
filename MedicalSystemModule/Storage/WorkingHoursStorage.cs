@@ -15,7 +15,7 @@ namespace MedicalSystemModule.Storage
         private MedicalContext.MedicalContext _context;
         public WorkingHoursStorage(IOptions<AppSettings> appsOptions)
         {
-            _context = new MedicalContext.MedicalContext(appsOptions.Value.ConnectionString);
+            //_context = new MedicalContext.MedicalContext(appsOptions.Value.ConnectionString);
         }
 
         public IEnumerable<IWorkingHours> GetDoctorWorkingHours(Guid doctorId)

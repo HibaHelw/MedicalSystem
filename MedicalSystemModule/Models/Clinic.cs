@@ -23,6 +23,6 @@ namespace MedicalSystemModule.Models
         public string Name { get; set; }
         public string Location { get; set; }
         [NotMapped]
-        public ICollection<IDoctorClinicService> DoctorClinicServices { get; set; }
+        public virtual ICollection<IDoctorClinicService> DoctorClinicServices { get; set; }
     }
 }
