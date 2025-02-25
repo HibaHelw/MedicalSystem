@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalSystemAPI", "MedicalSystemAPI.csproj", "{52AEB04C-0E6C-4BB4-8B73-CBC3B13B1CDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalSystemAPI", "MedicalSystemAPI.csproj", "{52AEB04C-0E6C-4BB4-8B73-CBC3B13B1CDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalSystemModule", "..\MedicalSystemModule\MedicalSystemModule.csproj", "{ED63BDB6-0534-4182-A2C0-8CCA8D5E1981}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalSystemModule", "..\MedicalSystemModule\MedicalSystemModule.csproj", "{ED63BDB6-0534-4182-A2C0-8CCA8D5E1981}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "..\UnitTest\UnitTest.csproj", "{AF9172F8-5FB3-4BF2-9BFA-CE33149ADC42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{ED63BDB6-0534-4182-A2C0-8CCA8D5E1981}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED63BDB6-0534-4182-A2C0-8CCA8D5E1981}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED63BDB6-0534-4182-A2C0-8CCA8D5E1981}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF9172F8-5FB3-4BF2-9BFA-CE33149ADC42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF9172F8-5FB3-4BF2-9BFA-CE33149ADC42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF9172F8-5FB3-4BF2-9BFA-CE33149ADC42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF9172F8-5FB3-4BF2-9BFA-CE33149ADC42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

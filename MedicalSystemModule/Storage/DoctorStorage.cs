@@ -17,7 +17,7 @@ namespace MedicalSystemModule.Storage
         private MedicalContext.MedicalContext _context;
         public DoctorStorage(IOptions<AppSettings> appsOptions)
         {
-            //_context = new MedicalContext.MedicalContext(appsOptions.Value.ConnectionString);
+            _context = new MedicalContext.MedicalContext(appsOptions.Value.ConnectionString);
         }
 
         public async Task<IEnumerable<IDoctor>> GetAll()

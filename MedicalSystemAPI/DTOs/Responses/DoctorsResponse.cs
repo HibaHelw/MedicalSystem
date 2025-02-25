@@ -10,7 +10,7 @@ namespace MedicalSystemAPI.DTOs.Responses
         public DateTime? DeletedAt { get; set; }
         public string Name { get; set; }
         public string Specialty { get; set; }
-        public IEnumerable<IDoctorClinicService> DoctorClinicServices { get; set; }
+        public IEnumerable<IDoctorClinicService>? DoctorClinicServices { get; set; }
 
         public static DoctorsResponse Transform(IDoctor doctor)
         {

@@ -15,7 +15,7 @@ namespace MedicalSystemModule.Storage
         private MedicalContext.MedicalContext _context;
         public ClinicServicesStorage(IOptions<AppSettings> appsOptions)
         {
-            //_context = new MedicalContext.MedicalContext(appsOptions.Value.ConnectionString);
+            _context = new MedicalContext.MedicalContext(appsOptions.Value.ConnectionString);
         }
 
         public IDoctorClinicService GetById(Guid id)

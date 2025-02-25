@@ -11,7 +11,7 @@ namespace MedicalSystemAPI.DTOs.Responses
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public ICollection<IDoctorClinicService> DoctorClinicServices { get; set; }
+        public ICollection<IDoctorClinicService>? DoctorClinicServices { get; set; }
 
         public static ServicesResponse Transform(IService service)
         {

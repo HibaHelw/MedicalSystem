@@ -14,12 +14,12 @@ namespace MedicalSystemModule.MedicalContext
         public string _connectionString = "Data source=.\\SQLEXPRESS2014;Database=MedicalDB;Integrated Security=True;Trusted_Connection=True;" +
                                           "TrustServerCertificate=True;";
 
-        //public MedicalContext(string connectionString)
-        //{
-        //}
-        //public MedicalContext(IOptions<MedicalContext> m)
-        //{
-        //}
+        public MedicalContext(string connectionString)
+        {
+        }
+        public MedicalContext(IOptions<MedicalContext> m)
+        {
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(_connectionString);
