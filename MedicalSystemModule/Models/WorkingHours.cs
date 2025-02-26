@@ -23,6 +23,7 @@ namespace MedicalSystemModule.Models
                 DoctorId = DoctorId,
                 EndTime = EndTime,
                 StartTime = StartTime,
+                Id = Id,
             };
         }
         public Guid DoctorId { get; set; }

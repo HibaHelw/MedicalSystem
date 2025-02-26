@@ -18,6 +18,10 @@ namespace MedicalSystemModule.Models
                 Name = Name,
                 Location = Location,
                 DoctorClinicServices = DoctorClinicServices,
+                Id = Id,
+                CreatedAt = CreatedAt,
+                UpdatedAt = UpdatedAt,
+                DeletedAt = DeletedAt,
             };
         }
         public string Name { get; set; }
