@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedicalSystemModule")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a2a52ec4c6248df73058970d900647e2d6b2afd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+658c27ee16e2d1f15e764312d5660c606ff5a596")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedicalSystemModule")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedicalSystemModule")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

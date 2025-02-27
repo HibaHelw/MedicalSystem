@@ -1,6 +1,7 @@
 ﻿using MedicalSystemAPI.DTOs.Requests;
 using MedicalSystemAPI.DTOs.Responses;
 using MedicalSystemModule.MedicalContext;
+using MedicalSystemModule.Models;
 using MedicalSystemModule.Services;
 using MedicalSystemModule.Utilities;
 using Microsoft.AspNetCore.Authorization;
@@ -22,34 +23,34 @@ namespace MedicalSystemAPI.Controllers
         }
 
 
-        [HttpGet("{id}")]
-        [Authorize]
+        [HttpGet("{doctorId}")]
+        //[Authorize]
         [SwaggerOperation(Summary = "Get doctor working hours")]
-        public async Task<IEnumerable<WorkingHoursResponse>> GetDoctorWorkingHours(Guid id)
+        public async Task<IEnumerable<WorkingHoursResponse>> GetDoctorWorkingHours(Guid doctorId)
         {
-            return service.GetDoctorWorkingHours(id).Select(c => WorkingHoursResponse.Transform(c));
+            return service.GetDoctorWorkingHours(doctorId).Select(c => WorkingHoursResponse.Transform(c));
         }
 
         [HttpPost]
-        [Authorize]
+        // [Authorize]
         [SwaggerOperation(Summary = "Add working hours to doctor")]
-        public Guid CreateDoctor([FromBody] WorkingHoursRequest workingHours)
+        public Guid CreateWorkingHour([FromBody] WorkingHoursRequest workingHours)
         {
             return service.CreateWorkingHours(workingHours);
         }
 
         [HttpPut("{id}")]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "Edit doctor working hours")]
-        public void UpdateDoctor(Guid id, [FromBody] WorkingHoursRequest workingHours)
+        public void UpdateWorkingHour(Guid id, [FromBody] WorkingHoursRequest workingHours)
         {
             service.UpdateDoctorWorkingHours(id, workingHours);
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "Delete doctor working hours")]
-        public void DeleteDoctor(Guid id)
+        public void DeleteWorkingHour(Guid id)
         {
             service.DeleteWorkingHours(id);
         }

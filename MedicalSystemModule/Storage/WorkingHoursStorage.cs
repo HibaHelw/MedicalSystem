@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MedicalSystemModule.Interfaces;
 using MedicalSystemModule.Models;
 using MedicalSystemModule.Utilities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace MedicalSystemModule.Storage
@@ -20,7 +21,7 @@ namespace MedicalSystemModule.Storage
 
         public IEnumerable<IWorkingHours> GetDoctorWorkingHours(Guid doctorId)
         {
-            return _context.WorkingHours.Where(w => w.DoctorId == doctorId && !w.DeletedAt.HasValue)
+            return _context.WorkingHours.Include(c => c.Doctor).Where(w => w.DoctorId == doctorId && !w.DeletedAt.HasValue)
                 .Select(c => c.Transform());
         }
 
@@ -31,6 +32,7 @@ namespace MedicalSystemModule.Storage
                 DoctorId = workingHours.DoctorId,
                 StartTime = workingHours.StartTime,
                 EndTime = workingHours.EndTime,
+                CreatedAt = DateTime.UtcNow,
             };
             _context.WorkingHours.Add(DocWorkingHours);
             _context.SaveChanges();

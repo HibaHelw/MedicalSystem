@@ -26,7 +26,7 @@ namespace MedicalSystemAPI.Controllers
         #region Services
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "Get all services")]
         public async Task<IEnumerable<ServicesResponse>> GetAll()
         {
@@ -34,7 +34,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "Get service by id")]
         public ServicesResponse GeTById(Guid id)
         {
@@ -42,7 +42,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "Add service")]
         public Guid Create([FromBody] ServiceRequest service)
         {
@@ -50,7 +50,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "Edit service")]
         public void Update(Guid id, [FromBody] ServiceRequest service)
         {
@@ -58,7 +58,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "Delete service")]
         public void Delete(Guid id)
         {
@@ -70,7 +70,7 @@ namespace MedicalSystemAPI.Controllers
         #region clinic Services
 
         [HttpPost("ClinicService")]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "Add service to clinic")]
         public Guid AddServiceToClinic(Guid clinicId, Guid serviceId, Guid? doctorId)
         {
@@ -78,7 +78,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpPut("ClinicService/{id}")]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "Edit service in clinic")]
         public void UpdateServiceToClinic(Guid id, Guid clinicId, Guid serviceId, Guid? doctorId)
         {
@@ -86,7 +86,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpDelete("ClinicService/{id}")]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "Delete service from clinic")]
         public void DeleteServiceFromClinic(Guid id)
         {
@@ -98,7 +98,7 @@ namespace MedicalSystemAPI.Controllers
         #region DoctorServices
 
         [HttpPut("DoctorService/{id}")]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "Edit service for doctor")]
         public void UpdateDoctorService(Guid id, Guid clinicId, Guid serviceId, Guid doctorId)
         {
@@ -106,7 +106,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpDelete("DoctorService/{id}")]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "delete service from doctor")]
         public void DeleteServiceFromDoctor(Guid id, Guid clinicId, Guid serviceId)
         {

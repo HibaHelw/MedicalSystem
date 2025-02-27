@@ -26,6 +26,7 @@ namespace MedicalSystemModule.Services
         }
         public IClinic GetById(Guid id)
         {
+            if (!Exist(id)) throw new Exception("Id doesn't exist");
             return storage.GetById(id);
         }
 
