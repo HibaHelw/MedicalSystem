@@ -14,9 +14,19 @@ var options = Options.Create(new AppSettings()
                        "TrustServerCertificate=True;"
 });
 
-ClinicServices clinicServices = new ClinicServices(options);
-clinicServices.CreateClinic(new TransformToClinic()
+//ClinicServices clinicServices = new ClinicServices(options);
+//clinicServices.CreateClinic(new TransformToClinic()
+//{
+//    Name = "jng",
+//    Location = "ndgj",
+//});
+
+UserServices userServices = new UserServices(options);
+var user = new TransformToUSer()
 {
-    Name = "jng",
-    Location = "ndgj",
-});
+    Username = "hiba",
+    CreatedAt = DateTime.UtcNow,
+    Password = "123",
+    Email = "hh@gmail.com"
+};
+userServices.CreateUser(user);

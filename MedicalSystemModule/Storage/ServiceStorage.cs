@@ -22,12 +22,12 @@ namespace MedicalSystemModule.Storage
 
         public async Task<IEnumerable<IService>> GetAll()
         {
-            return await _context.Services.Where(d => !d.DeletedAt.HasValue).Select(c => c.Transform()).ToListAsync();
+            return await _context.Services.Include(c => c.DoctorClinicServices).Where(d => !d.DeletedAt.HasValue).Select(c => c.Transform()).ToListAsync();
         }
 
         public IService GetById(Guid id)
         {
-            return _context.Services.FirstOrDefault(d => !d.DeletedAt.HasValue && d.Id == id)?.Transform();
+            return _context.Services.Include(c=>c.DoctorClinicServices).FirstOrDefault(d => !d.DeletedAt.HasValue && d.Id == id)?.Transform();
         }
 
         public Guid CreateService(IService service)

@@ -21,7 +21,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         [SwaggerOperation(Summary = "Get all clinics")]
         public async Task<IEnumerable<ClinicsResponse>> GetAll()
         {
@@ -29,7 +29,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        //[Authorize]
+        [Authorize]
         [SwaggerOperation(Summary = "Get clinic by id")]
         public ClinicsResponse GeTById(Guid id)
         {
@@ -37,7 +37,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         [SwaggerOperation(Summary = "Add clinic")]
         public Guid Create([FromBody] ClinicRequest clinic)
         {
@@ -45,7 +45,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize]
+        [Authorize]
         [SwaggerOperation(Summary = "Edit clinic")]
         public void Update(Guid id, [FromBody] ClinicRequest clinic)
         {
@@ -53,7 +53,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        //[Authorize]
+        [Authorize]
         [SwaggerOperation(Summary = "Delete clinic")]
         public void Delete(Guid id)
         {

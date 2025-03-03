@@ -7,9 +7,9 @@ F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.Genera
 F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.AssemblyInfoInputs.cache
 F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.AssemblyInfo.cs
 F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.csproj.CoreCompileInputs.cache
+F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.sourcelink.json
 F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.dll
 F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\refint\MedicalSystemModule.dll
 F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.pdb
 F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.genruntimeconfig.cache
 F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\ref\MedicalSystemModule.dll
-F:\MedicalSystem\MedicalSystemModule\obj\Debug\net8.0\MedicalSystemModule.sourcelink.json

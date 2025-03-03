@@ -1,5 +1,6 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using MedicalSystemModule.Interfaces.Services;
 using MedicalSystemModule.Utilities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -16,16 +17,16 @@ namespace MedicalSystemAPI.Middleware
             _appSettings = appSettings.Value;
         }
 
-        public async Task Invoke(HttpContext context)
+        public async Task Invoke(HttpContext context, IUserServices userService)
         {
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
             if (token != null)
-                AttachUserToContext(context, token);
+                AttachUserToContext(context, token, userService);
 
             await _next(context);
         }
-        private void AttachUserToContext(HttpContext context, string token)
+        private void AttachUserToContext(HttpContext context, string token, IUserServices userService)
         {
             try
             {
@@ -44,6 +45,11 @@ namespace MedicalSystemAPI.Middleware
                 var jwtToken = (JwtSecurityToken)validatedToken;
                 var userId = Guid.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
+                var user = userService.GetById(userId);
+                if (user == null) // user is deactivated, go to catch
+                    throw new Exception();
+
+                context.Items["User"] = user;
             }
             catch
             {

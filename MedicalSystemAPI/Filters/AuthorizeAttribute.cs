@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using MedicalSystemModule.Interfaces;
 
 namespace MedicalSystemAPI.Filters
 {
@@ -9,10 +10,10 @@ namespace MedicalSystemAPI.Filters
     {
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            //var user = context.HttpContext.Items["User"] as IUser;
+            var user = context.HttpContext.Items["User"] as IUser;
 
-            //if (user == null)
-            //    context.Result = new JsonResult(new { message = "Unauthorized" }) { StatusCode = StatusCodes.Status401Unauthorized };
+            if (user == null)
+                context.Result = new JsonResult(new { message = "Unauthorized" }) { StatusCode = StatusCodes.Status401Unauthorized };
 
         }
     }

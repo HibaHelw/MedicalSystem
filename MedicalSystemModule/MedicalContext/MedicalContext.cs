@@ -36,6 +36,7 @@ namespace MedicalSystemModule.MedicalContext
         public DbSet<Service> Services { get; set; }
         public DbSet<DoctorClinicService> DoctorClinicServices { get; set; }
         public DbSet<WorkingHours> WorkingHours { get; set; }
+        public DbSet<User> Users { get; set; }
         #endregion
     }
 }
