@@ -11,6 +11,5 @@ namespace MedicalSystemModule.Interfaces
     {
         public string Name { get; set; }
         public string Location { get; set; }
-        public ICollection<IDoctorClinicService> DoctorClinicServices { get; set; }
     }
 }

@@ -4,6 +4,10 @@ namespace MedicalSystemAPI.DTOs.Responses
 {
     public class DoctorsResponse : IDoctor
     {
+        public DoctorsResponse()
+        {
+            DoctorClinicServices = new List<IDoctorClinicService>();
+        }
         public Guid Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
@@ -12,7 +16,7 @@ namespace MedicalSystemAPI.DTOs.Responses
         public string Specialty { get; set; }
         public IEnumerable<IDoctorClinicService>? DoctorClinicServices { get; set; }
 
-        public static DoctorsResponse Transform(IDoctor doctor)
+        public static DoctorsResponse Transform(IDoctor doctor, IEnumerable<IDoctorClinicService> value)
         {
             return new DoctorsResponse()
             {
@@ -22,7 +26,7 @@ namespace MedicalSystemAPI.DTOs.Responses
                 DeletedAt = doctor.DeletedAt,
                 Name = doctor.Name,
                 Specialty = doctor.Specialty,
-                DoctorClinicServices = doctor.DoctorClinicServices,
+                DoctorClinicServices = value,
             };
         }
     }

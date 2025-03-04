@@ -21,12 +21,16 @@ var options = Options.Create(new AppSettings()
 //    Location = "ndgj",
 //});
 
-UserServices userServices = new UserServices(options);
-var user = new TransformToUSer()
-{
-    Username = "hiba",
-    CreatedAt = DateTime.UtcNow,
-    Password = "123",
-    Email = "hh@gmail.com"
-};
-userServices.CreateUser(user);
+//UserServices userServices = new UserServices(options);
+//var user = new TransformToUSer()
+//{
+//    Username = "hiba",
+//    CreatedAt = DateTime.UtcNow,
+//    Password = "123",
+//    Email = "hh@gmail.com"
+//};
+//userServices.CreateUser(user);
+
+DoctorServices doc = new DoctorServices(options);
+var t=doc.GetAll();
+var x = 5;

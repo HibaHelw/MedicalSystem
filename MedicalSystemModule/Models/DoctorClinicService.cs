@@ -16,23 +16,23 @@ namespace MedicalSystemModule.Models
         {
             return new TransformToDoctorClinicService()
             {
-                Doctor = Doctor.Transform(),
+                Doctor = Doctor?.Transform(),
                 CreatedAt = CreatedAt,
                 UpdatedAt = UpdatedAt,
                 DeletedAt = DeletedAt,
                 DoctorId = DoctorId,
-                Clinic = Clinic.Transform(),
+                Clinic = Clinic?.Transform(),
                 ClinicId = ClinicId,
                 Id = Id,
-                Service = Service.Transform(),
+                Service = Service?.Transform(),
                 ServiceId = ServiceId,
             };
         }
         public Guid? DoctorId { get; set; }
         public Doctor? Doctor { get; set; }
         public Guid ClinicId { get; set; }
-        public Clinic Clinic { get; set; }
+        public Clinic? Clinic { get; set; }
         public Guid ServiceId { get; set; }
-        public Service Service { get; set; }
+        public Service? Service { get; set; }
     }
 }

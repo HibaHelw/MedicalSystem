@@ -58,9 +58,11 @@ namespace MedicalSystemModule.Services
             if (string.IsNullOrWhiteSpace(user.Username)) throw new Exception("User name cannot be empty");
             if (string.IsNullOrWhiteSpace(user.Password)) throw new Exception("Password cannot be empty");
             if (string.IsNullOrWhiteSpace(user.Email)) throw new Exception("Email cannot be empty");
-            if (GetByUsernameAndPassword(user.Username, user.Password) != null)
+            var userbyusername = GetByUsernameAndPassword(user.Username, user.Password);
+            if (userbyusername != null && userbyusername.Id != id)
                 throw new Exception("User name already exist");
-            if (GetByEmailAndPassword(user.Email, user.Password) != null)
+            var userbyEmail = GetByEmailAndPassword(user.Email, user.Password);
+            if (userbyEmail != null && userbyEmail.Id != id)
                 throw new Exception("User email already exist");
         }
 

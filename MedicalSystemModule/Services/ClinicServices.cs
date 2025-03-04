@@ -71,5 +71,9 @@ namespace MedicalSystemModule.Services
         {
             return storage.Exist(id);
         }
+        public IEnumerable<IDoctorClinicService> GetClinicServices(Guid clinicId)
+        {
+            return storage.GetClinicServices(clinicId).Result;
+        }
     }
 }

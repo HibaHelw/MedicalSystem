@@ -2,6 +2,7 @@
 using MedicalSystemAPI.DTOs.Responses;
 using MedicalSystemModule.Interfaces;
 using MedicalSystemModule.MedicalContext;
+using MedicalSystemModule.Models;
 using MedicalSystemModule.Services;
 using MedicalSystemModule.Utilities;
 using Microsoft.AspNetCore.Authorization;
@@ -29,7 +30,7 @@ namespace MedicalSystemAPI.Controllers
         [SwaggerOperation(Summary = "Get all doctors")]
         public async Task<IEnumerable<DoctorsResponse>> GetAllDoctors()
         {
-            return service.GetAll().Result.Select(c => DoctorsResponse.Transform(c));
+            return service.GetAll().Result.Select(c => DoctorsResponse.Transform(c, service.GetDoctorServices(c.Id)));
         }
 
         [HttpGet("{id}")]
@@ -37,7 +38,7 @@ namespace MedicalSystemAPI.Controllers
         [SwaggerOperation(Summary = "Get doctor by id")]
         public DoctorsResponse GeTDoctorById(Guid id)
         {
-            return DoctorsResponse.Transform(service.GetById(id));
+            return DoctorsResponse.Transform(service.GetById(id), service.GetDoctorServices(id));
         }
 
         [HttpPost]

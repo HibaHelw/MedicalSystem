@@ -26,7 +26,6 @@ namespace MedicalSystemModule.Models
         }
         public string Name { get; set; }
         public string Specialty { get; set; }
-        [NotMapped]
-        public virtual IEnumerable<IDoctorClinicService> DoctorClinicServices { get; set; }
+        public IEnumerable<DoctorClinicService> DoctorClinicServices { get; set; }
     }
 }

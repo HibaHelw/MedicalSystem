@@ -11,6 +11,5 @@ namespace MedicalSystemModule.Interfaces
     {
         public string Name { get; set; }
         public string Specialty { get; set; }
-        public IEnumerable<IDoctorClinicService> DoctorClinicServices { get; set; }
     }
 }

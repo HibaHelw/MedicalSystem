@@ -15,5 +15,6 @@
         public void DeleteClinic(Guid id);
 
         public bool Exist(Guid id);
+        public IEnumerable<IDoctorClinicService> GetClinicServices(Guid clinicId);
     }
 }

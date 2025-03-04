@@ -25,7 +25,7 @@ namespace MedicalSystemAPI.Controllers
         [SwaggerOperation(Summary = "Get all clinics")]
         public async Task<IEnumerable<ClinicsResponse>> GetAll()
         {
-            return service.GetAll().Result.Select(c => ClinicsResponse.Transform(c));
+            return service.GetAll().Result.Select(c => ClinicsResponse.Transform(c, service.GetClinicServices(c.Id)));
         }
 
         [HttpGet("{id}")]
@@ -33,7 +33,7 @@ namespace MedicalSystemAPI.Controllers
         [SwaggerOperation(Summary = "Get clinic by id")]
         public ClinicsResponse GeTById(Guid id)
         {
-            return ClinicsResponse.Transform(service.GetById(id));
+            return ClinicsResponse.Transform(service.GetById(id), service.GetClinicServices(id));
         }
 
         [HttpPost]

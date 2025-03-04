@@ -10,9 +10,9 @@ namespace MedicalSystemAPI.DTOs.Responses
         public DateTime? DeletedAt { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
-        public ICollection<IDoctorClinicService>? DoctorClinicServices { get; set; }
+        public IEnumerable<IDoctorClinicService>? DoctorClinicServices { get; set; }
 
-        public static ClinicsResponse Transform(IClinic clinic)
+        public static ClinicsResponse Transform(IClinic clinic, IEnumerable<IDoctorClinicService> value)
         {
             return new ClinicsResponse
             {
@@ -22,7 +22,7 @@ namespace MedicalSystemAPI.DTOs.Responses
                 Name = clinic.Name,
                 Location = clinic.Location,
                 Id = clinic.Id,
-                DoctorClinicServices = clinic.DoctorClinicServices
+                DoctorClinicServices = value,
             };
         }
     }

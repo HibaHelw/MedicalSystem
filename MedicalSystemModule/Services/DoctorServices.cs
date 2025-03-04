@@ -19,9 +19,9 @@ namespace MedicalSystemModule.Services
         {
             storage = new DoctorStorage(appsOptions);
         }
-        public async Task<IEnumerable<IDoctor>> GetAll()
+        public Task<IEnumerable<IDoctor>> GetAll()
         {
-            return await storage.GetAll();
+            return storage.GetAll();
         }
         public IDoctor GetById(Guid id)
         {
@@ -69,6 +69,11 @@ namespace MedicalSystemModule.Services
         public bool Exist(Guid id)
         {
             return storage.Exist(id);
+        }
+
+        public IEnumerable<IDoctorClinicService> GetDoctorServices(Guid doctorId)
+        {
+            return storage.GetDoctorServices(doctorId).Result;
         }
     }
 }
