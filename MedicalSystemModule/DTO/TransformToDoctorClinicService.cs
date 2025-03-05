@@ -14,7 +14,7 @@ namespace MedicalSystemModule.DTO
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
-        public Guid? DoctorId { get; set; }
+        public Guid? DocId { get; set; }
         public IDoctor? Doctor { get; set; }
         public Guid ClinicId { get; set; }
         public IClinic Clinic { get; set; }

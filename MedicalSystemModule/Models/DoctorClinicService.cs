@@ -2,7 +2,9 @@
 using MedicalSystemModule.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,20 +18,20 @@ namespace MedicalSystemModule.Models
         {
             return new TransformToDoctorClinicService()
             {
-                Doctor = Doctor?.Transform(),
                 CreatedAt = CreatedAt,
                 UpdatedAt = UpdatedAt,
                 DeletedAt = DeletedAt,
-                DoctorId = DoctorId,
-                Clinic = Clinic?.Transform(),
+                DocId = DocId,
                 ClinicId = ClinicId,
-                Id = Id,
-                Service = Service?.Transform(),
                 ServiceId = ServiceId,
+                Id = Id,
+                Clinic = Clinic?.Transform(),
+                Service = Service?.Transform(),
             };
         }
-        public Guid? DoctorId { get; set; }
-        public Doctor? Doctor { get; set; }
+        [Column("DocId")]
+        public Guid? DocId { get; set; }
+        //public Doctor Doctor { get; set; }
         public Guid ClinicId { get; set; }
         public Clinic? Clinic { get; set; }
         public Guid ServiceId { get; set; }

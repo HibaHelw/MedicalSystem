@@ -6,7 +6,7 @@
     <title>MedicalModule</title>
     <authors>MedicalSystemModule</authors>
     <description>Package Description</description>
-    <repository type="git" commit="f125f5f8842ea05b61912ae1d575a7f41bd29b5c" />
+    <repository type="git" commit="9e22fd786f4fddce032a8fd3ab30af26d3c0c31d" />
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Microsoft.AspNetCore.Identity.EntityFrameworkCore" version="8.0.0" exclude="Build,Analyzers" />

@@ -27,7 +27,7 @@ namespace MedicalSystemModule.Storage
 
         public IService GetById(Guid id)
         {
-            return _context.Services.Include(c=>c.DoctorClinicServices).FirstOrDefault(d => !d.DeletedAt.HasValue && d.Id == id)?.Transform();
+            return _context.Services.Include(c => c.DoctorClinicServices).FirstOrDefault(d => !d.DeletedAt.HasValue && d.Id == id)?.Transform();
         }
 
         public Guid CreateService(IService service)
@@ -66,6 +66,11 @@ namespace MedicalSystemModule.Storage
         public bool Exist(Guid id)
         {
             return _context.Services.Any(c => c.Id == id && !c.DeletedAt.HasValue);
+        }
+        public async Task<List<IDoctorClinicService>> GetServiceServices(Guid serviceId)
+        {
+            return await _context.DoctorClinicServices.Where(c => c.ServiceId == serviceId && !c.DeletedAt.HasValue)
+                .Select(c => c.Transform()).ToListAsync();
         }
     }
 }

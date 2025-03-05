@@ -15,7 +15,7 @@ namespace MedicalSystemModule.Storage
         private MedicalContext.MedicalContext _context;
         public ClinicServicesStorage(IOptions<AppSettings> appsOptions)
         {
-            //_context = new MedicalContext.MedicalContext(appsOptions.Value.ConnectionString);
+            _context = new MedicalContext.MedicalContext(appsOptions.Value.ConnectionString);
         }
 
         public IDoctorClinicService GetById(Guid id)
@@ -28,7 +28,7 @@ namespace MedicalSystemModule.Storage
             {
                 ClinicId = clinicId,
                 ServiceId = ServiceId,
-                DoctorId = DoctorId,
+                DocId = DoctorId,
                 CreatedAt = DateTime.UtcNow,
             };
             _context.DoctorClinicServices.Add(clinincService);
@@ -42,7 +42,7 @@ namespace MedicalSystemModule.Storage
                 _context.DoctorClinicServices.FirstOrDefault(c => c.Id == id && !c.DeletedAt.HasValue);
             if (clinincService != null)
             {
-                clinincService.DoctorId = DoctorId;
+                clinincService.DocId = DoctorId;
                 clinincService.ClinicId = clinicId;
                 clinincService.ServiceId = ServiceId;
                 clinincService.UpdatedAt = DateTime.UtcNow;

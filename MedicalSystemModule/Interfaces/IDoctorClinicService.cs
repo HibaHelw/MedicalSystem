@@ -9,7 +9,7 @@ namespace MedicalSystemModule.Interfaces
 {
     public interface IDoctorClinicService : IBase
     {
-        public Guid? DoctorId { get; set; }
+        public Guid? DocId { get; set; }
         public IDoctor? Doctor { get; set; }
         public Guid ClinicId { get; set; }
         public IClinic Clinic { get; set; }

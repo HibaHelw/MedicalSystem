@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MedicalSystemModule.Interfaces.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace MedicalSystemModule.Services
 {
@@ -80,5 +81,12 @@ namespace MedicalSystemModule.Services
         {
             return storage.Exist(id);
         }
+
+        public IEnumerable<IDoctorClinicService> GetServiceServices(Guid serviceId)
+        {
+            return storage.GetServiceServices(serviceId).Result;
+        }
+
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using MedicalSystemAPI.DTOs.Requests;
 using MedicalSystemAPI.DTOs.Responses;
 using MedicalSystemModule.Interfaces;
+using MedicalSystemModule.Interfaces.Services;
 using MedicalSystemModule.MedicalContext;
 using MedicalSystemModule.Models;
 using MedicalSystemModule.Services;
@@ -18,15 +19,15 @@ namespace MedicalSystemAPI.Controllers
 
     public class DoctorsController : ControllerBase
     {
-        private DoctorServices service;
+        private IDoctorServices service;
 
-        public DoctorsController(IOptions<AppSettings> appsOptions)
+        public DoctorsController(IDoctorServices DocSer)
         {
-            service = new DoctorServices(appsOptions);
+            service = DocSer;
         }
 
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         [SwaggerOperation(Summary = "Get all doctors")]
         public async Task<IEnumerable<DoctorsResponse>> GetAllDoctors()
         {
@@ -34,7 +35,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        //[Authorize]
+        [Authorize]
         [SwaggerOperation(Summary = "Get doctor by id")]
         public DoctorsResponse GeTDoctorById(Guid id)
         {
@@ -42,7 +43,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         [SwaggerOperation(Summary = "Add doctor")]
         public Guid CreateDoctor([FromBody] DoctorRequest doctor)
         {
@@ -50,7 +51,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize]
+        [Authorize]
         [SwaggerOperation(Summary = "Edit doctor")]
         public void UpdateDoctor(Guid id, [FromBody] DoctorRequest doctor)
         {
@@ -58,7 +59,7 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        //[Authorize]
+        [Authorize]
         [SwaggerOperation(Summary = "Delete doctor")]
         public void DeleteDoctor(Guid id)
         {

@@ -38,7 +38,6 @@ namespace MedicalSystemAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         [SwaggerOperation(Summary = "Add new user")]
         public Guid Register([FromBody] UserRequest user)
         {

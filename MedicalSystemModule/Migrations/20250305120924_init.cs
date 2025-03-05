@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MedicalSystemModule.Migrations
 {
     /// <inheritdoc />
-    public partial class initProject : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -67,6 +67,24 @@ namespace MedicalSystemModule.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                schema: "Medical",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "WorkingHours",
                 schema: "Medical",
                 columns: table => new
@@ -97,9 +115,10 @@ namespace MedicalSystemModule.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DoctorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    DocId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     ClinicId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DoctorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -119,7 +138,8 @@ namespace MedicalSystemModule.Migrations
                         column: x => x.DoctorId,
                         principalSchema: "Medical",
                         principalTable: "Doctors",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_DoctorClinicServices_Services_ServiceId",
                         column: x => x.ServiceId,
@@ -159,6 +179,10 @@ namespace MedicalSystemModule.Migrations
         {
             migrationBuilder.DropTable(
                 name: "DoctorClinicServices",
+                schema: "Medical");
+
+            migrationBuilder.DropTable(
+                name: "Users",
                 schema: "Medical");
 
             migrationBuilder.DropTable(

@@ -30,7 +30,7 @@ namespace MedicalSystemModule.Services
         {
             if (!clinicStorage.Exist(clinicId)) throw new Exception("clinic Id doesn't exist");
             if (!serviceStorage.Exist(ServiceId)) throw new Exception("Service Id doesn't exist");
-            if (DoctorId.HasValue && !doctorStorage.Exist(DoctorId.Value)) throw new Exception("Doctor Id doesn't exist");
+            if (DoctorId.HasValue && DoctorId != Guid.Empty && !doctorStorage.Exist(DoctorId.Value)) throw new Exception("Doctor Id doesn't exist");
         }
         public Guid AddServiceToClinic(Guid clinicId, Guid ServiceId, Guid? DoctorId)
         {
@@ -53,7 +53,7 @@ namespace MedicalSystemModule.Services
         {
             if (!storage.Exist(id)) throw new Exception("ClinicService Id doesn't exist");
             var clinicService = storage.GetById(id);
-            if (clinicService.DoctorId.HasValue && !doctorStorage.GetDoctorServices(clinicService.DoctorId.Value).Result.
+            if (clinicService.DocId.HasValue && !doctorStorage.GetDoctorServices(clinicService.DocId.Value).Result.
                     Any(c => c.ServiceId == clinicService.ServiceId || c.ClinicId == clinicService.ClinicId))
                 throw new Exception("clinic service has relations with doctors, cannot be deleted");
         }

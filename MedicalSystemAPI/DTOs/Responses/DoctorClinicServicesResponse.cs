@@ -8,7 +8,7 @@ namespace MedicalSystemAPI.DTOs.Responses
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
-        public Guid? DoctorId { get; set; }
+        public Guid? DocId { get; set; }
         public IDoctor? Doctor { get; set; }
         public Guid ClinicId { get; set; }
         public IClinic Clinic { get; set; }
@@ -25,7 +25,7 @@ namespace MedicalSystemAPI.DTOs.Responses
                 Id = value.Id,
                 ServiceId = value.ServiceId,
                 ClinicId = value.ClinicId,
-                DoctorId = value.DoctorId,
+                DocId = value.DocId,
             };
         }
     }

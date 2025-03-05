@@ -94,6 +94,10 @@ namespace MedicalSystemModule.Migrations
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("DocId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("DocId");
+
                     b.Property<Guid?>("DoctorId")
                         .HasColumnType("uniqueidentifier");
 
@@ -211,24 +215,22 @@ namespace MedicalSystemModule.Migrations
             modelBuilder.Entity("MedicalSystemModule.Models.DoctorClinicService", b =>
                 {
                     b.HasOne("MedicalSystemModule.Models.Clinic", "Clinic")
-                        .WithMany()
+                        .WithMany("DoctorClinicServices")
                         .HasForeignKey("ClinicId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MedicalSystemModule.Models.Doctor", "Doctor")
-                        .WithMany()
+                    b.HasOne("MedicalSystemModule.Models.Doctor", null)
+                        .WithMany("DoctorClinicServices")
                         .HasForeignKey("DoctorId");
 
                     b.HasOne("MedicalSystemModule.Models.Service", "Service")
-                        .WithMany()
+                        .WithMany("DoctorClinicServices")
                         .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Clinic");
-
-                    b.Navigation("Doctor");
 
                     b.Navigation("Service");
                 });
@@ -242,6 +244,21 @@ namespace MedicalSystemModule.Migrations
                         .IsRequired();
 
                     b.Navigation("Doctor");
+                });
+
+            modelBuilder.Entity("MedicalSystemModule.Models.Clinic", b =>
+                {
+                    b.Navigation("DoctorClinicServices");
+                });
+
+            modelBuilder.Entity("MedicalSystemModule.Models.Doctor", b =>
+                {
+                    b.Navigation("DoctorClinicServices");
+                });
+
+            modelBuilder.Entity("MedicalSystemModule.Models.Service", b =>
+                {
+                    b.Navigation("DoctorClinicServices");
                 });
 #pragma warning restore 612, 618
         }

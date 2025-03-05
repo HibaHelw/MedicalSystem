@@ -68,7 +68,7 @@ namespace MedicalSystemModule.Storage
 
         public async Task<List<IDoctorClinicService>> GetDoctorServices(Guid doctorId)
         {
-            return await _context.DoctorClinicServices.Where(c => c.DoctorId == doctorId && !c.DeletedAt.HasValue)
+            return await _context.DoctorClinicServices.Where(c => c.DocId == doctorId && !c.DeletedAt.HasValue)
                 .Select(c => c.Transform()).ToListAsync();
         }
     }

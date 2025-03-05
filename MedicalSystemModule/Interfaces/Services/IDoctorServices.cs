@@ -20,5 +20,6 @@ namespace MedicalSystemModule.Interfaces.Services
         public void DeleteDoctor(Guid id);
 
         public bool Exist(Guid id);
+        public IEnumerable<IDoctorClinicService> GetDoctorServices(Guid doctorId);
     }
 }

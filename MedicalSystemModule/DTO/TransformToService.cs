@@ -17,6 +17,6 @@ namespace MedicalSystemModule.DTO
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public ICollection<IDoctorClinicService> DoctorClinicServices { get; set; }
+        public IEnumerable<DoctorClinicService> DoctorClinicServices { get; set; }
     }
 }
